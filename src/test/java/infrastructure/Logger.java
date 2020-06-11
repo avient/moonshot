@@ -5,7 +5,7 @@ import org.testng.Reporter;
 public class Logger {
     private static Logger instance = null;
 
-    private static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Logger.class);
+    private static final org.apache.logging.log4j.Logger logger = org.apache.logging.log4j.LogManager.getLogger(Logger.class);
 
     private Logger() {
     }
