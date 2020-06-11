@@ -1,9 +1,9 @@
-### Moonshot data-automation
+## Moonshot data-automation
 
 ---
-#### Local run
+### Local run
 
-#####Prerequisites:
+####Prerequisites:
 - Java v8 or higher
 - Maven
 
@@ -17,7 +17,7 @@
 2.Execute `mvn clean install` from the root directory
 
 ---
-#### Docker run
+### Docker run
 
 1.Set env variables in the file `moonshot.env`
 - AWS_ACCESS_KEY_ID
