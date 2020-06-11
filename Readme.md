@@ -3,7 +3,7 @@
 ---
 ### Local run
 
-####Prerequisites:
+#### Prerequisites:
 - Java v8 or higher
 - Maven
 
