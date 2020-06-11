@@ -2,7 +2,6 @@ package web.forms;
 
 import org.openqa.selenium.By;
 import web.BaseForm;
-import web.elements.Button;
 import web.elements.Label;
 
 public class SourceDataPage extends BaseForm {

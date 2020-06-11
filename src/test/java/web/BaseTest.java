@@ -10,7 +10,6 @@ public class BaseTest extends BaseEntity {
     public void beforeTest() {
         WebDriver driver = browser.getDriver();
         driver.manage().window().maximize();
-//        driver.get(browser.getBaseUrl());
     }
 
     @AfterTest
