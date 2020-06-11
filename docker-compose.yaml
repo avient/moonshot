@@ -1,0 +1,13 @@
+version: "2.2"
+services:
+  moonshot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: moonshot:local
+    container_name: moonshot
+    stdin_open: true
+    tty: true
+    env_file:
+      - moonshot.env
+
