@@ -1,12 +1,12 @@
 package tests;
 
+import org.testng.annotations.AfterTest;
 import utils.CsvParser;
 import utils.DateUtil;
 import utils.Downloader;
 import org.testng.annotations.Test;
 import utils.S3Util;
 import web.BaseTest;
-import web.forms.MainPage;
 import web.forms.SourceDataPage;
 
 import java.util.ArrayList;
@@ -20,18 +20,27 @@ public class DemoTest extends BaseTest {
     private final CsvParser csvParser = CsvParser.getInstance();
     private final DateUtil dateUtil = DateUtil.getInstance();
     private final S3Util s3Util = S3Util.getInstance();
-    private final MainPage mainPage = new MainPage();
     private final SourceDataPage sourceDataPage = new SourceDataPage();
+    private final String FILE_NAME = "owid-covid-data.csv";
+    private final String RESULT_FILE_NAME = "owid-covid-data-results.csv";
+
+    @AfterTest
+    @Override
+    public void afterTest() {
+        downloader.deleteFileIfPresent(FILE_NAME);
+        downloader.deleteFileIfPresent(RESULT_FILE_NAME);
+        super.afterTest();
+    }
 
     @Test
     public void runTest() {
-        String FILE_NAME = "owid-covid-data.csv";
-        String RESULT_FILE_NAME = "owid-covid-data-results.csv";
 
         // Download file
         sourceDataPage.navigate();
-        String linkUrl = sourceDataPage.getCsvLink();
-        downloader.downloadUsingLink(linkUrl, FILE_NAME);
+//        String linkUrl = sourceDataPage.getCsvLink();
+//        downloader.downloadUsingLink(linkUrl, FILE_NAME);
+        sourceDataPage.clickCsvDownload();
+        downloader.waitForFileToBeDownloaded(FILE_NAME);
 
         // Parse to list
         List<List<String>> list = csvParser.parseToList(FILE_NAME);

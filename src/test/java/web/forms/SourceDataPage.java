@@ -18,4 +18,8 @@ public class SourceDataPage extends BaseForm {
     public String getCsvLink() {
         return csvSourceLabel.getElementAttribute("href");
     }
+
+    public void clickCsvDownload() {
+        csvSourceLabel.click();
+    }
 }
